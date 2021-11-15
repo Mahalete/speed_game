@@ -1,0 +1,20 @@
+.circles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.circle {
+  background-color: grey;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+  color: white;
+}
+
+.circle p {
+  font-size: 2rem;
+}
