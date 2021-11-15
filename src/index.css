@@ -50,3 +50,8 @@ p {
 .circle p {
   font-size: 2rem;
 }
+
+.active {
+  box-shadow: 0 0 25px yellow;
+  border: 25px solid yellow;
+}
