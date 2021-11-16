@@ -14,6 +14,9 @@ class App extends Component {
     current: 0,
     gameOver: false,
     pace: 1500,
+    rounds: 0,
+    gameStart: false,
+    gameEnd: false,
   };
 
   timer = undefined;
@@ -30,10 +33,15 @@ class App extends Component {
 
     this.setState({
       score: this.state.score + 10,
+      rounds: 0,
     });
   };
 
   nextCircle = () => {
+    if (this.state.rounds >= 5) {
+      this.stopHandler();
+      return; //stops anythinng from continuing
+    }
     let nextActive;
 
     do {
@@ -43,23 +51,29 @@ class App extends Component {
     this.setState({
       current: nextActive,
       pace: this.state.pace * 0.95,
+      rounds: this.state.rounds + 1,
     });
 
     this.timer = setTimeout(this.nextCircle, this.state.pace);
 
     console.log("active circle is ", this.state.current);
+    console.log("Round number ", this.state.rounds);
   };
 
   startHandler = () => {
     this.nextCircle();
+    this.setState({ gameStart: true });
   };
 
   stopHandler = () => {
     clearTimeout(this.timer);
+    this.setState({ gameEnd: true });
 
     this.setState({
       gameOver: true,
       current: 0,
+      gameStart: false,
+      gameEnd: false,
     });
   };
 
@@ -68,6 +82,7 @@ class App extends Component {
       gameOver: false,
       score: 0,
       pace: 1500,
+      rounds: 0,
     });
   };
 
@@ -85,15 +100,19 @@ class App extends Component {
               key={c.id}
               color={c.color}
               id={c.id}
-              //Binding the data which circle we are clicking
+              //Binding anonymous functionsthe data which circle we are clicking
               click={() => this.clickHandler(c.id)}
               active={this.state.current === c.id}
             />
           ))}
         </div>
         <div>
-          <button onClick={this.startHandler}>Start</button>
-          <button onClick={this.stopHandler}>Stop</button>
+          <button disabled={this.state.gameStart} onClick={this.startHandler}>
+            Start
+          </button>
+          <button disabled={this.state.gameEnd} onClick={this.stopHandler}>
+            Stop
+          </button>
         </div>
       </div>
     );

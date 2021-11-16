@@ -47,6 +47,8 @@ p {
   justify-content: center;
   margin: 1rem;
   color: white;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgb(72, 72, 72);
 }
 
 .circle p {
