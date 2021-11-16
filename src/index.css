@@ -12,9 +12,9 @@ body {
   text-align: center;
   padding: 5rem;
   background-image: linear-gradient(
-    90deg,
-    hsla(33, 100%, 53%, 1) 0%,
-    hsla(58, 100%, 68%, 1) 100%
+    0deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(253, 187, 45, 1) 100%
   );
 }
 
@@ -23,7 +23,9 @@ button {
   padding: 0.8rem 2rem;
   border: none;
   background-color: wheat;
-  margin: 1rem;
+  margin: 2rem;
+  background-color: burlywood;
+  border-radius: 3px;
 }
 h1,
 p {
@@ -81,7 +83,7 @@ p {
 .popup p {
   padding: 1rem 0;
 }
-.top_btn {
+.close_btn {
   padding-left: 80%;
 
   size: 80px;

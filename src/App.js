@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import Circle from "./Circle";
-import Gameover from "./Gameover";
+import GameOver from "./GameOver";
 import { circles } from "./circles";
 
 const getRndInteger = (min, max) => {
@@ -13,10 +13,10 @@ class App extends Component {
     score: 0,
     current: 0,
     gameOver: false,
+    pace: 1500,
   };
 
   timer = undefined;
-  pace = 1500;
 
   clickHandler = () => {
     this.setState({
@@ -33,10 +33,10 @@ class App extends Component {
 
     this.setState({
       current: nextActive,
+      pace: this.state.pace * 0.95,
     });
 
-    this.pace *= 0.95;
-    this.timer = setTimeout(this.nextCircle, this.pace);
+    this.timer = setTimeout(this.nextCircle, this.state.pace);
 
     console.log("active circle is ", this.state.current);
   };
@@ -50,14 +50,25 @@ class App extends Component {
 
     this.setState({
       gameOver: true,
+      current: 0,
+    });
+  };
+
+  closeHandler = () => {
+    this.setState({
+      gameOver: false,
+      score: 0,
+      pace: 1500,
     });
   };
 
   render() {
     return (
       <div>
-        {this.state.gameOver && <Gameover score={this.state.score} />}
-        <h1>SpeedGame</h1>
+        {this.state.gameOver && (
+          <GameOver score={this.state.score} close={this.closeHandler} />
+        )}
+        <h1>Test your Speed Game</h1>
         <p>Your score: {this.state.score}</p>
         <div className="circles">
           {circles.map((c) => (
