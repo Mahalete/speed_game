@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import Circle from "./Circle";
+import Gameover from "./Gameover";
 import { circles } from "./circles";
 
 const getRndInteger = (min, max) => {
@@ -11,6 +12,7 @@ class App extends Component {
   state = {
     score: 0,
     current: 0,
+    gameOver: false,
   };
 
   timer = undefined;
@@ -45,11 +47,16 @@ class App extends Component {
 
   stopHandler = () => {
     clearTimeout(this.timer);
+
+    this.setState({
+      gameOver: true,
+    });
   };
 
   render() {
     return (
       <div>
+        {this.state.gameOver && <Gameover score={this.state.score} />}
         <h1>SpeedGame</h1>
         <p>Your score: {this.state.score}</p>
         <div className="circles">

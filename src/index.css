@@ -55,3 +55,34 @@ p {
   box-shadow: 0 0 25px yellow;
   border: 25px solid yellow;
 }
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(51, 51, 51, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 50%;
+  width: 50%;
+  background-color: rgb(243, 215, 215);
+  padding: 2rem;
+  box-shadow: 0 0 5px #333;
+  margin: 0 auto;
+}
+.popup p {
+  padding: 1rem 0;
+}
+.top_btn {
+  padding-left: 80%;
+
+  size: 80px;
+}
