@@ -18,7 +18,16 @@ class App extends Component {
 
   timer = undefined;
 
-  clickHandler = () => {
+  clickHandler = (id) => {
+    //binding data with the event
+    console.log("you clicked: ", id);
+
+    if (this.state.current !== id) {
+      //Check if the circle id is the one I clicked
+      this.stopHandler();
+      return; //stops anythinng from continuing
+    }
+
     this.setState({
       score: this.state.score + 10,
     });
@@ -76,7 +85,8 @@ class App extends Component {
               key={c.id}
               color={c.color}
               id={c.id}
-              click={this.clickHandler}
+              //Binding the data which circle we are clicking
+              click={() => this.clickHandler(c.id)}
               active={this.state.current === c.id}
             />
           ))}
