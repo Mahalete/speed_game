@@ -70,6 +70,7 @@ class App extends Component {
     });
 
     this.timer = setTimeout(this.nextCircle, this.state.pace);
+    this.clickPlay();
 
     console.log("active circle is ", this.state.current);
     console.log("Round number ", this.state.rounds);
@@ -78,6 +79,7 @@ class App extends Component {
   startHandler = () => {
     gameStartSound.play();
     this.nextCircle();
+
     this.setState({ gameStart: true });
   };
 
