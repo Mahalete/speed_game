@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/speed_game/static/css/main.9554458d.chunk.css",
-    "main.js": "/speed_game/static/js/main.0c0eb3c0.chunk.js",
-    "main.js.map": "/speed_game/static/js/main.0c0eb3c0.chunk.js.map",
+    "main.css": "/speed_game/static/css/main.a7ba7805.chunk.css",
+    "main.js": "/speed_game/static/js/main.661c1e8b.chunk.js",
+    "main.js.map": "/speed_game/static/js/main.661c1e8b.chunk.js.map",
     "runtime-main.js": "/speed_game/static/js/runtime-main.3d817ee4.js",
     "runtime-main.js.map": "/speed_game/static/js/runtime-main.3d817ee4.js.map",
     "static/js/2.a30e2633.chunk.js": "/speed_game/static/js/2.a30e2633.chunk.js",
     "static/js/2.a30e2633.chunk.js.map": "/speed_game/static/js/2.a30e2633.chunk.js.map",
     "index.html": "/speed_game/index.html",
-    "static/css/main.9554458d.chunk.css.map": "/speed_game/static/css/main.9554458d.chunk.css.map",
+    "static/css/main.a7ba7805.chunk.css.map": "/speed_game/static/css/main.a7ba7805.chunk.css.map",
     "static/js/2.a30e2633.chunk.js.LICENSE.txt": "/speed_game/static/js/2.a30e2633.chunk.js.LICENSE.txt",
     "static/media/App.css": "/speed_game/static/media/cat 2.8fc8a1d0.svg",
     "static/media/index.css": "/speed_game/static/media/mouse_cheese.f4bf0d93.svg",
@@ -19,7 +19,7 @@
   "entrypoints": [
     "static/js/runtime-main.3d817ee4.js",
     "static/js/2.a30e2633.chunk.js",
-    "static/css/main.9554458d.chunk.css",
-    "static/js/main.0c0eb3c0.chunk.js"
+    "static/css/main.a7ba7805.chunk.css",
+    "static/js/main.661c1e8b.chunk.js"
   ]
 }
