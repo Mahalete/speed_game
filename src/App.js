@@ -1,8 +1,16 @@
 import React, { Component } from "react";
 import "./App.css";
 import Circle from "./Circle";
+import startSound from "./assets/sounds/startSound.mp3";
+import endSound from "./assets/sounds/endSound1.wav";
 import GameOver from "./GameOver";
 import { circles } from "./circles";
+import click from "./assets/sounds/click.wav";
+
+let gameStartSound = new Audio(startSound);
+let gameEndSound = new Audio(endSound);
+
+let clickSound = new Audio(click);
 
 const getRndInteger = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -20,6 +28,13 @@ class App extends Component {
   };
 
   timer = undefined;
+  clickPlay = () => {
+    if (clickSound.paused) {
+      clickSound.play();
+    } else {
+      clickSound.currentTime = 0;
+    }
+  };
 
   clickHandler = (id) => {
     //binding data with the event
@@ -61,13 +76,16 @@ class App extends Component {
   };
 
   startHandler = () => {
+    gameStartSound.play();
     this.nextCircle();
     this.setState({ gameStart: true });
   };
 
   stopHandler = () => {
+    gameStartSound.pause();
+    gameEndSound.play();
     clearTimeout(this.timer);
-    this.setState({ gameEnd: true });
+    // this.setState({ gameEnd: true });
 
     this.setState({
       gameOver: true,
@@ -92,7 +110,7 @@ class App extends Component {
         {this.state.gameOver && (
           <GameOver score={this.state.score} close={this.closeHandler} />
         )}
-        <h1>Test your Speed Game</h1>
+        <h1>Catch ME if you CAN!</h1>
         <p>Your score: {this.state.score}</p>
         <div className="circles">
           {circles.map((c) => (
@@ -103,6 +121,7 @@ class App extends Component {
               //Binding anonymous functionsthe data which circle we are clicking
               click={() => this.clickHandler(c.id)}
               active={this.state.current === c.id}
+              disabled={this.state.gameStart}
             />
           ))}
         </div>
